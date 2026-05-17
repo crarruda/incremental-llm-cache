@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "incremental-llm-cache"
+version = "0.1.0"
+description = "Resumable, on-disk cache for expensive per-row computations (LLM calls, translation, geocoding, classification)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Carlos R. Arruda" }]
+keywords = [
+    "cache",
+    "llm",
+    "pandas",
+    "resumable",
+    "checkpoint",
+    "preprocessing",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pandas>=2.0",
+    "tqdm>=4.65",
+]
+
+[project.urls]
+Repository = "https://github.com/crarruda/incremental-llm-cache"
+
+# The package directory matches the install-time import name.
+[tool.setuptools]
+packages = ["incremental_llm_cache"]

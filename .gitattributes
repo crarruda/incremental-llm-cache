@@ -1,0 +1,6 @@
+# Normalize line endings across platforms.
+# Text files are stored as LF in the repository; Windows working copies
+# can still be configured to render as CRLF via core.autocrlf, but the
+# canonical form in git history stays LF.
+
+* text=auto eol=lf
