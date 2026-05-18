@@ -1,9 +1,17 @@
+# Python
 __pycache__/
 *.pyc
+
+# Build / install artifacts (from pip install -e . or python -m build)
+*.egg-info/
+build/
+dist/
+
+# Environment / editor / OS
 .env
 .vscode/
+.idea/
 .DS_Store
 
 # Cache artifacts produced by the example script
 cache/
-*.cache.json

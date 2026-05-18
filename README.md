@@ -84,6 +84,33 @@ A pinned alternative is provided as `requirements.txt`.
 
 ---
 
+## Running the Example
+
+A self-contained demonstration lives in `examples/basic_usage.py`. It
+exercises the cold-cache, warm-cache, forced-rerun, error, retry, and
+bypass paths against a fake "expensive" function. No API keys or network
+access required.
+
+After an editable install, the example can be run directly:
+
+```bash
+pip install -e .
+python examples/basic_usage.py
+```
+
+Alternatively, without installing, the example can be invoked as a
+module from the repository root:
+
+```bash
+python -m examples.basic_usage
+```
+
+Both invocations produce the same output. The script writes its cache
+file to `cache/demo_v1.json` (gitignored) so subsequent runs can be
+inspected on disk.
+
+---
+
 ## Public API
 
 The repository exposes two public entry points:
@@ -107,10 +134,16 @@ incremental_cache(
 ) -> dict[str, object]
 ```
 
-A helper builds a deterministic cache path from a name and a folder:
+A helper builds a deterministic cache path from a folder, a file name,
+and an optional version suffix:
 
 ```python
-cache_path = build_cache_path(name="sentiment_v3", folder="cache")
+cache_path = build_cache_path(
+    base_dir="cache",
+    file_name="sentiment",
+    version=3,
+)
+# → "cache/sentiment_v3.json"
 ```
 
 Batch orchestration, multi-process coordination, and key-value store
